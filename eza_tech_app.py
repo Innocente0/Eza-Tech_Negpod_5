@@ -92,3 +92,7 @@ class EzaTechApp(cmd.Cmd):
             data = self.get_user_input("Enter farming data: ")
             self.user_data[self.username]["farming"] = data
             print(f"Farming data added for user '{self.username}'.")
+if __name__ == "__main__":
+    app = EzaTechApp()
+    app.print_menu()
+    app.cmdloop()
