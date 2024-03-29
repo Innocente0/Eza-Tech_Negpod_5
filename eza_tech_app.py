@@ -86,3 +86,9 @@ class EzaTechApp(cmd.Cmd):
             print(f"User '{self.username}' logged out successfully.")
         else:
             print("You are not logged in.")
+    def add_farming_data(self):
+        """Add farming data."""
+        if self.logged_in:
+            data = self.get_user_input("Enter farming data: ")
+            self.user_data[self.username]["farming"] = data
+            print(f"Farming data added for user '{self.username}'.")
