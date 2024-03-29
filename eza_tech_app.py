@@ -66,4 +66,15 @@ class EzaTechApp(cmd.Cmd):
             if user_input:
                 return user_input.strip()
             else:
-                print("Input cannot be empty. Please try again.") 
+                print("Input cannot be empty. Please try again.")
+    
+    def register_user(self):
+        """Register a new user."""
+        username = self.get_user_input("Enter a username: ")
+        if username in self.user_data:
+            print("This username already exists. Please choose another one.")
+        else:
+            self.user_data[username] = {}
+            self.logged_in = True
+            self.username = username
+            print(f"User '{username}' registered successfully.")
