@@ -49,4 +49,12 @@ class EzaTechApp(cmd.Cmd):
     def do_6(self, line):
         """Add livestock data."""
         self.add_livestock_data()
+    
+    def do_7(self, line):
+        """Access data."""
+        self.access_data()
 
+    def do_8(self, line):
+        """Exit the application."""
+        print("Exiting the application...")
+        exit(0)
