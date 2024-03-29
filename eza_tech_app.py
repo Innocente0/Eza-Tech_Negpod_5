@@ -80,3 +80,9 @@ class EzaTechApp(cmd.Cmd):
             print(f"User '{username}' registered successfully.")
     def logout_user(self):
         """Logout the current user."""
+        if self.logged_in:
+            self.logged_in = False
+            self.username = None
+            print(f"User '{self.username}' logged out successfully.")
+        else:
+            print("You are not logged in.")
