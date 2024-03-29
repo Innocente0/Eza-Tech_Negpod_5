@@ -58,3 +58,12 @@ class EzaTechApp(cmd.Cmd):
         """Exit the application."""
         print("Exiting the application...")
         exit(0)
+    
+    def get_user_input(self, prompt):
+        """Get user input and handle invalid input."""
+        while True:
+            user_input = input(prompt)
+            if user_input:
+                return user_input.strip()
+            else:
+                print("Input cannot be empty. Please try again.") 
