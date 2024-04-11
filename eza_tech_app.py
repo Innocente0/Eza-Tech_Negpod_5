@@ -58,6 +58,18 @@ class EzaTechApp(cmd.Cmd):
         """Exit the application."""
         print("Exiting the application...")
         exit(0)
+
+    def login_user(self, prompt):
+        """Login the current user."""
+        print("Logged in")
+
+    def add_livestock_data(self, prompt):
+        """Add Livestock Data."""
+        print("Coming Soon")   
+    
+    def access_data(self, prompt):
+        """Get Data"""
+        print("Coming Soon")
     
     def get_user_input(self, prompt):
         """Get user input and handle invalid input."""
@@ -72,18 +84,18 @@ class EzaTechApp(cmd.Cmd):
         """Register a new user."""
         username = self.get_user_input("Enter a username: ")
         if username in self.user_data:
-            print("This username already exists. Please choose another one.")
+            print("This username already exists. Please choose another one")
         else:
             self.user_data[username] = {}
             self.logged_in = True
             self.username = username
-            print(f"User '{username}' registered successfully.")
+            print(f"User '{self.username}' registered successfully")
     def logout_user(self):
         """Logout the current user."""
         if self.logged_in:
             self.logged_in = False
             self.username = None
-            print(f"User '{self.username}' logged out successfully.")
+            print(f"User '{self.username}' logged out successfully")
         else:
             print("You are not logged in.")
     def add_farming_data(self):
@@ -91,8 +103,12 @@ class EzaTechApp(cmd.Cmd):
         if self.logged_in:
             data = self.get_user_input("Enter farming data: ")
             self.user_data[self.username]["farming"] = data
-            print(f"Farming data added for user '{self.username}'.")
+            print(f"Farming data added for user '{self.username}'")
+        else:
+            print("You need to be logged in to add farming data")
+
 if __name__ == "__main__":
     app = EzaTechApp()
     app.print_menu()
     app.cmdloop()
+
